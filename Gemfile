@@ -5,7 +5,7 @@ gem 'rails', '3.0.7'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2'
+gem 'sqlite3-ruby', :require => 'sqlite3'
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -30,4 +30,14 @@ gem 'mysql2'
 #   gem 'webrat'
 # end
 gem "jquery-rails"
-gem "rspec-rails", ">= 2.0.1", :group => [:development, :test]
+
+group :development, :test do
+  gem "sauce"
+  gem "rspec-rails", ">= 2.0.0.beta.22"
+  gem "webrat", ">= 0.7.2.beta.1"
+  gem "database_cleaner"
+  gem "cucumber-rails"
+  gem "cucumber"
+  gem "spork"
+  gem "launchy"
+end
