@@ -5,11 +5,6 @@
 # files.
 ENV["RAILS_ENV"] = "test"
 require File.expand_path(File.dirname(__FILE__) + '/../../config/environment')
-require 'cucumber/rails/world'
-require 'cucumber/formatter/unicode'
-
-require 'cucumber/rails/rspec'
-require 'cucumber/rails'
 require 'webrat'
 require 'webrat/core/matchers'
 
@@ -29,12 +24,20 @@ require 'sauce'
 # 2) Set the value below to true. Beware that doing this globally is not
 # recommended as it will mask a lot of errors for you!
 #
-ActionController::Base.allow_rescue = false
-selenium = Sauce::Selenium.new(:browser_url => "http://saucelabs.com",
-    :browser => "firefox", :browser_version => "3.", :os => "Windows 2003",
-    :job_name => "My first test!")
-selenium.start
+#ActionController::Base.allow_rescue = false
 
+Before do |scenario|
+
+  @selenium = Sauce::Selenium.new(:browser_url => "http://saucelabs.com",
+                                  :browser => "firefox", :browser_version => "3.", :os => "Windows 2003",
+                                  :job_name => scenario.name)
+  @selenium.start
+
+end
+
+After do |scenario|
+  @selenium.stop
+end
 # Webrat.configure do |config|
 #   config.mode = :selenium
 #   config.open_error_files = false # Set to true if you want error pages to pop up in the browser

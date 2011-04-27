@@ -36,7 +36,6 @@ group :development, :test do
   gem "rspec-rails", ">= 2.0.0.beta.22"
   gem "webrat", ">= 0.7.2.beta.1"
   gem "database_cleaner"
-  gem "cucumber-rails"
   gem "cucumber"
   gem "spork"
   gem "launchy"
