@@ -34,7 +34,7 @@ gem "jquery-rails"
 group :development, :test do
   gem "sauce"
   gem "rspec-rails", ">= 2.0.0.beta.22"
-  gem "webrat", ">= 0.7.2.beta.1"
+  gem "webrat", ">= 0.7.3"
   gem "database_cleaner"
   gem "cucumber"
   gem "spork"
